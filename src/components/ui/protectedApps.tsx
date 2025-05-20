@@ -1,4 +1,3 @@
-// src/components/ProtectedRoute.jsx
 "use client";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -19,5 +18,7 @@ export default function ProtectedRoute({
     }
   }, [router]);
 
-  return user ? children : null;
+  if (!user) return null;
+
+  return <>{children}</>;
 }
