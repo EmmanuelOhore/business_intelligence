@@ -1,8 +1,3 @@
-Sure! Here's a polished, complete README for your project including setup instructions, usage, plus notes about the new Report and KPIs pages with placeholders. It guides users on what to do next after cloning.
-
----
-
-````markdown
 # 📊 Business Intelligence Dashboard – BrandDrive Assessment
 
 This is a **3-page business intelligence web application** built with **React** and **TypeScript**. The app provides a clean and responsive interface to visualize business metrics and manage user data. It was developed as part of the BrandDrive Frontend Assessment.
