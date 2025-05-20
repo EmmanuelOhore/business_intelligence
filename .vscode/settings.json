@@ -1,0 +1,17 @@
+{
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-merge-map/**": true,
+    "**/node_modules/**": true,
+    "**/out/**": true,
+    "**/.next/cache/**": true
+  },
+  "typescript.tsserver.useCPUCountForTsc": true,
+  "eslint.enable": false,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": false
+  },
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false
+}
