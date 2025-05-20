@@ -19,7 +19,6 @@ type UserDataType = {
 };
 
 const OverviewTable = () => {
-  const [loading, setLoading] = useState(true);
   const [userslist, setUserslist] = useState<UserDataType[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDateRange, setSelectedDateRange] = useState({
@@ -38,8 +37,6 @@ const OverviewTable = () => {
         setUserslist(res.data.data);
       } catch (err) {
         console.error("Error fetching data", err);
-      } finally {
-        setLoading(false);
       }
     }
 

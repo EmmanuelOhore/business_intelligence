@@ -11,7 +11,6 @@ const DisplayCard = ({
   value,
   change = "+5%",
   isUp = true,
-  featured = false,
 }: DisplayCardProps) => {
   return (
     <article
