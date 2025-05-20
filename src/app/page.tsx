@@ -1,5 +1,5 @@
 "use client";
-import Inputfield from "@/components/inputfields";
+import Inputfield from "@/components/ui/inputfields";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
