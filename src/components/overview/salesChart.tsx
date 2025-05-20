@@ -50,7 +50,7 @@ export default function SignupsChart() {
         New Customers Acquired
       </h2>
 
-      <div className=" h-56  max-phoneL:w-[80%] max-phoneP:w-[100%] max-phoneP:ml-[-2.5rem]">
+      <div className=" h-56  max-phoneL:w-[80%]  max-phoneP:w-[100%] max-phoneP:ml-[-2.5rem]">
         <ResponsiveContainer width="100%" height="80%">
           <BarChart data={signData}>
             <XAxis dataKey="name" tick={{ fontSize: tickFontSize }} />

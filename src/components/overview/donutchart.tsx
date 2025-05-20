@@ -42,7 +42,7 @@ export default function RevenueSourceChart() {
         Revenue Breakdown
       </h2>
 
-      <div className="h-56 max-phoneL:w-[80%] max-phoneP:w-full">
+      <div className="h-56 max-phoneL:w-[100%]  max-phoneP:w-[100%] max-phoneP:ml-[-2.5rem]">
         <ResponsiveContainer width="100%" height="80%">
           <PieChart>
             <Pie
@@ -63,6 +63,7 @@ export default function RevenueSourceChart() {
               ))}
             </Pie>
             <Tooltip />
+
             <Legend
               layout={isSmallScreen ? "vertical" : "horizontal"}
               align={isSmallScreen ? "right" : "center"}
@@ -70,7 +71,6 @@ export default function RevenueSourceChart() {
               wrapperStyle={{
                 fontSize: isSmallScreen ? 10 : 12,
                 marginTop: isSmallScreen ? 0 : "1rem",
-                marginLeft: isSmallScreen ? 20 : 0, // Add space between legend and chart on small screens
               }}
               formatter={(value) => (
                 <span
