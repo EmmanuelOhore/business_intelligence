@@ -8,10 +8,16 @@ import { Formik, Form, Field } from "formik";
 import { useAuth } from "../context/AuthContext";
 import { loginValidationSchema } from "../constants/schemas";
 import { registrationSchema } from "../constants/schemas";
+
+type UserType = {
+  email: string;
+  password: string;
+  name: string;
+};
 const Home = () => {
   const [submitting, setSubmitting] = useState(false);
   const [active, setActive] = useState(false);
-  const { user, setUser, setIsAuthenticated } = useAuth();
+  const { setUser, setIsAuthenticated } = useAuth();
   const router = useRouter();
 
   return (
@@ -43,10 +49,10 @@ const Home = () => {
                     // Simulate a delay for the submission
                     setTimeout(() => {
                       // gets the stored user data from local storage
-                      const storedUser: any = localStorage.getItem("auth_user");
+                      const storedUser = localStorage.getItem("auth_user");
                       // checks if the user already exists
-                      const User = JSON.parse(storedUser)?.find(
-                        (user: any) =>
+                      const User = JSON.parse(storedUser || "[]")?.find(
+                        (user: UserType) =>
                           user.email === values.email &&
                           user.password === values.password
                       );
@@ -77,6 +83,8 @@ const Home = () => {
                     }, 2000);
                   } catch (error) {
                     toast.error("Login failed");
+                    setSubmitting(false);
+                    console.log(error);
                   }
                 }}
               >
@@ -191,10 +199,10 @@ const Home = () => {
                     // Simulate a delay for the submission
                     setTimeout(() => {
                       // gets the stored user data from local storage
-                      const storedUser: any = localStorage.getItem("auth_user");
+                      const storedUser = localStorage.getItem("auth_user");
                       // checks if the user already exists
-                      const userExists = JSON.parse(storedUser)?.some(
-                        (user: any) => user.email === values.email
+                      const userExists = JSON.parse(storedUser || "[]")?.some(
+                        (user: UserType) => user.email === values.email
                       );
                       console.log(userExists);
                       if (userExists) {
@@ -220,6 +228,7 @@ const Home = () => {
                   } catch (error) {
                     toast.error("Registration failed");
                     setSubmitting(false);
+                    console.log(error);
                   }
                 }}
               >
