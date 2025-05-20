@@ -1,4 +1,6 @@
+import { NextResponse } from "next/server";
 import { UserData } from "../../../mocks/mockData";
+
 export async function GET() {
-  return Response.json({ data: UserData });
+  return NextResponse.json({ data: UserData });
 }
