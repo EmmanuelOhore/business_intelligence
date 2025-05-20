@@ -32,7 +32,7 @@ export default function UserDetailPage() {
     );
 
   // Calculate usage percentage
-  const usagePercent = Math.min(100, (user.usageCount / 100) * 100);
+  const usagePercent = Math.min(100, (Number(user.usageCount) / 100) * 100);
 
   return (
     <main
@@ -88,12 +88,7 @@ export default function UserDetailPage() {
           />
         </div>
 
-        {/* Optional bio/tagline */}
-        {user.bio && (
-          <p className="mt-4 sm:mt-0 text-gray-600 italic text-sm max-tablet:text-xs max-phoneL:text-[10px] sm:col-span-full">
-            {user.bio}
-          </p>
-        )}
+
       </section>
 
       {/* Details Section */}
