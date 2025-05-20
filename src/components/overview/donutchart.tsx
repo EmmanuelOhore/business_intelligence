@@ -70,6 +70,7 @@ export default function RevenueSourceChart() {
               wrapperStyle={{
                 fontSize: isSmallScreen ? 10 : 12,
                 marginTop: isSmallScreen ? 0 : "1rem",
+                marginLeft: isSmallScreen ? 20 : 0, // Add space between legend and chart on small screens
               }}
               formatter={(value) => (
                 <span
