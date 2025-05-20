@@ -14,7 +14,6 @@ const COLORS = ["#4f46e5", "#06b6d4", "#10b981"]; // Indigo, Cyan, Green
 
 export default function RevenueSourceChart() {
   const [chartData, setChartData] = useState([]);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -22,8 +21,6 @@ export default function RevenueSourceChart() {
         setChartData(res.data.data);
       } catch (err) {
         console.error("Error fetching data", err);
-      } finally {
-        setLoading(false);
       }
     }
 

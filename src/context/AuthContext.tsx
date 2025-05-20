@@ -7,18 +7,7 @@ type User = {
   email: string;
   password: string;
 };
-type UserDataType = {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  lastLoginDate: string;
-  lastLogin: string;
-  status: string;
-  usageCount: string;
-  ip: string;
-  signups: string;
-};
+
 type context = {
   isAuthenticated: boolean;
   user: User | null;
@@ -56,7 +45,7 @@ export const AuthProvider = ({
     const session = JSON.parse(localStorage.getItem("session") || "{}");
 
     if (!session.rememberMe) {
-      let timeout: any;
+      let timeout: ReturnType<typeof setTimeout> | undefined;
 
       const logout = () => {
         localStorage.removeItem("session");
@@ -66,7 +55,7 @@ export const AuthProvider = ({
 
       const resetTimer = () => {
         clearTimeout(timeout);
-        timeout = setTimeout(logout, 10000); // 1 minute
+        timeout = setTimeout(logout, 60000); // 1 minute
       };
 
       // Track events that mean "activity"
@@ -83,7 +72,7 @@ export const AuthProvider = ({
         window.removeEventListener("click", resetTimer);
       };
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, router]);
 
   return (
     <AuthContext.Provider

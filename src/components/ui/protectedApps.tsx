@@ -1,10 +1,14 @@
 // src/components/ProtectedRoute.jsx
 "use client";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function ProtectedRoute({ children }) {
+export default function ProtectedRoute({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { user } = useAuth();
   const router = useRouter();
 
@@ -13,7 +17,7 @@ export default function ProtectedRoute({ children }) {
     if (!storedUser) {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
   return user ? children : null;
 }

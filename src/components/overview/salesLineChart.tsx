@@ -13,7 +13,6 @@ import {
 
 export default function SalesLineChart() {
   const [lineData, setlineData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [tickFontSize, setTickFontSize] = useState(12);
 
   useEffect(() => {
@@ -39,8 +38,6 @@ export default function SalesLineChart() {
         setlineData(res.data.data);
       } catch (err) {
         console.error("Error fetching data", err);
-      } finally {
-        setLoading(false);
       }
     }
 

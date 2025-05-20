@@ -10,17 +10,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { name: "Jan", signups: 220 },
-  { name: "Feb", signups: 180 },
-  { name: "Mar", signups: 300 },
-  { name: "Apr", signups: 270 },
-  { name: "May", signups: 200 },
-];
-
 export default function SignupsChart() {
   const [signData, setsignData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [tickFontSize, setTickFontSize] = useState(12);
 
   useEffect(() => {
@@ -48,8 +39,6 @@ export default function SignupsChart() {
         console.log("Fetched Users customer:", res.data.data);
       } catch (err) {
         console.error("Error fetching customer data", err);
-      } finally {
-        setLoading(false);
       }
     }
 
