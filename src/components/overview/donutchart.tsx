@@ -14,6 +14,8 @@ const COLORS = ["#4f46e5", "#06b6d4", "#10b981"]; // Indigo, Cyan, Green
 
 export default function RevenueSourceChart() {
   const [chartData, setChartData] = useState([]);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -23,16 +25,24 @@ export default function RevenueSourceChart() {
         console.error("Error fetching data", err);
       }
     }
-
     fetchData();
+
+    // Detect small screen and update state
+    const mediaQuery = window.matchMedia("(max-width: 640px)"); // Tailwind's "sm" breakpoint
+    setIsSmallScreen(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsSmallScreen(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
   }, []);
+
   return (
-    <div className="flex-1  h-56 ">
+    <div className="flex-1 h-56">
       <h2 className="text-lg font-semibold mb-4 max-phoneL:text-base">
         Revenue Breakdown
       </h2>
 
-      <div className=" h-56  max-phoneL:w-[80%] max-phoneP:w-full ">
+      <div className="h-56 max-phoneL:w-[80%] max-phoneP:w-full">
         <ResponsiveContainer width="100%" height="80%">
           <PieChart>
             <Pie
@@ -54,13 +64,17 @@ export default function RevenueSourceChart() {
             </Pie>
             <Tooltip />
             <Legend
-              verticalAlign="bottom"
-              height={26}
+              layout={isSmallScreen ? "vertical" : "horizontal"}
+              align={isSmallScreen ? "right" : "center"}
+              verticalAlign={isSmallScreen ? "middle" : "bottom"}
+              wrapperStyle={{
+                fontSize: isSmallScreen ? 10 : 12,
+                marginTop: isSmallScreen ? 0 : "1rem",
+              }}
               formatter={(value) => (
                 <span
                   style={{
-                    fontSize: "12px",
-                    marginTop: "1rem",
+                    fontSize: isSmallScreen ? 10 : 12,
                     color: "#374151",
                   }}
                 >

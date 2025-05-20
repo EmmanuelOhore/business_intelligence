@@ -292,7 +292,7 @@ const OverviewTable = () => {
                   <td className="py-3.5 px-4 text-left font-medium max-phoneL:px-2">
                     {item.name}
                   </td>
-                  <td className="py-3.5 px-4 text-left text-gray-600 max-phoneL:px-2">
+                  <td className="py-3.5 decoration-0 px-4 text-left text-gray-600 max-phoneL:px-2">
                     {item.email}
                   </td>
                   <td className="py-3.5 px-4 text-left max-phoneL:hidden">
