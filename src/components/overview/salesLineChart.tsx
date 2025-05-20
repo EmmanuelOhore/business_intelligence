@@ -14,6 +14,24 @@ import {
 export default function SalesLineChart() {
   const [lineData, setlineData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [tickFontSize, setTickFontSize] = useState(12);
+
+  useEffect(() => {
+    // Responsive tick size
+    const updateFontSize = () => {
+      const width = window.innerWidth;
+      if (width <= 480) {
+        setTickFontSize(10);
+      } else {
+        setTickFontSize(12);
+      }
+    };
+
+    updateFontSize();
+    window.addEventListener("resize", updateFontSize);
+
+    return () => window.removeEventListener("resize", updateFontSize);
+  }, []);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -37,8 +55,8 @@ export default function SalesLineChart() {
         <ResponsiveContainer width="100%" height="80%">
           <LineChart data={lineData}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey="name" tick={{ fontSize: tickFontSize }} />
+            <YAxis tick={{ fontSize: tickFontSize }} />
             <Tooltip />
             <Line
               type="monotone"

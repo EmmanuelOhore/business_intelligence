@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           >
             <Menu className="w-5 h-5" />
           </button>
-          <span className="font-semibold text-gray-800">Page Title</span>
+          <span className="font-semibold text-gray-800">Insight X</span>
         </header>
 
         <main className=" overflow-y-auto ">{children}</main>

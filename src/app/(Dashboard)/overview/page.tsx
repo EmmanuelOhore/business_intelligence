@@ -32,14 +32,14 @@ const OverView = () => {
             isUp={true}
           />
         </section>
-        <section className="flex flex-wrap  gap-4 max-laptop:flex-row max-laptop:gap-6 max-tablet:flex-col max-tablet:gap-4 max-phoneL:flex-col max-phoneL:gap-3">
-          <article className="flex gap-4 items-center flex-1 p-4 rounded-lg shadow-xl">
+        <section className="grid grid-cols-3 gap-4 max-laptop:grid-cols-2  max-tablet:grid-cols-1">
+          <article className="p-4 rounded-lg shadow-xl flex gap-4 items-center">
             <SignupsChart />
           </article>
-          <article className="flex gap-4 items-center flex-1 p-4 rounded-lg shadow-xl ">
+          <article className="p-4 rounded-lg shadow-xl flex gap-4 items-center">
             <RevenueSourceChart />
           </article>
-          <article className="flex gap-4 items-center flex-1 p-4 rounded-lg shadow-xl  max-laptop:col-span-2 max-phoneL:col-span-1 ">
+          <article className="p-4 rounded-lg shadow-xl flex gap-4 items-center max-laptop:col-span-2 max-tablet:col-span-1">
             <SalesLineChart />
           </article>
         </section>

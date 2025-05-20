@@ -21,6 +21,25 @@ const data = [
 export default function SignupsChart() {
   const [signData, setsignData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [tickFontSize, setTickFontSize] = useState(12);
+
+  useEffect(() => {
+    // Responsive tick size
+    const updateFontSize = () => {
+      const width = window.innerWidth;
+      if (width <= 480) {
+        setTickFontSize(10);
+      } else {
+        setTickFontSize(12);
+      }
+    };
+
+    updateFontSize();
+    window.addEventListener("resize", updateFontSize);
+
+    return () => window.removeEventListener("resize", updateFontSize);
+  }, []);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -45,8 +64,8 @@ export default function SignupsChart() {
       <div className=" h-56  max-phoneL:w-[80%] max-phoneP:w-[100%] max-phoneP:ml-[-2.5rem]">
         <ResponsiveContainer width="100%" height="80%">
           <BarChart data={signData}>
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey="name" tick={{ fontSize: tickFontSize }} />
+            <YAxis tick={{ fontSize: tickFontSize }} />
             <Tooltip />
             <Bar dataKey="signups" fill="#3b82f6" radius={[4, 4, 0, 0]} />
           </BarChart>

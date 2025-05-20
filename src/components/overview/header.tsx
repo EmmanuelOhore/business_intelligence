@@ -27,8 +27,8 @@ const Header = () => {
       </section>
 
       <section className="flex items-center justify-end gap-2  w-[20%] max-tablet:w-[25%] max-phoneL:w-[35%]">
-        <div className="w-[2rem] h-[2rem] rounded-full bg-[#96908c] flex items-center justify-center max-phoneL:w-[1.5rem] max-phoneL:h-[1.5rem] max-phoneP:w-[1.3rem] max-phoneP:h-[1.2rem]">
-          <i className="fa-solid fa-user text-base  text-white max-tablet:text-sm  max-phoneL:text-xs max-phoneL:text-[9px] max-phoneP:text-[8px]"></i>
+        <div className="w-[2rem] h-[2rem] rounded-full bg-[#96908c] flex items-center justify-center  max-phoneL:w-[1.5rem] max-phoneL:h-[1.5rem] max-phoneP:w-[1.3rem] max-phoneP:h-[1.2rem]">
+          <i className="fa-solid fa-user text-base  text-white max-tablet:text-[12px]  max-phoneL:text-xs max-phoneL:text-[9px] max-phoneP:text-[8px]"></i>
         </div>
         <div className="flex  items-center">
           <h2 className="text-[#363A42] text-sm font-semibold max-phoneL:text-[11px] max-phoneP:text-[9px]">
